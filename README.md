@@ -32,20 +32,18 @@ This script:
 
 Only edit the **USER CONFIGURATION** section at the top of the script:
 
-############################
-# USER CONFIGURATION
-############################
+USER CONFIGURATION
 :global wanInterface "pppoe-out1"
 :global duckDomain   "example.duckdns.org"
 :global duckToken    "YOUR-DUCKDNS-TOKEN"
 
-#### Paste the script into the mikrotik
+### Paste the script into the mikrotik
 From WinBox:
     Go to System/Scripts and create a new script
         - Set a name
         - Set permissions to read, policy and test
 
-#### Create a Scheduler
+### Create a Scheduler
 From WinBox:
     Go to System/Scheduler
     Create a new scheduler
