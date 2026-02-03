@@ -2,8 +2,8 @@
 # USER CONFIGURATION
 ############################
 :global wanInterface "pppoe-out1"
-:global duckDomain   "pde-alegria.duckdns.org"
-:global duckToken    "bdb6f2bd-43ac-4b4e-a24c-0d01a990d54d"
+:global duckDomain   "DOMAIN.duckdns.org"
+:global duckToken    "DUCKDNS-TOKEN"
 
 ############################
 # INTERNAL VARIABLES
@@ -23,8 +23,14 @@
 :do {
     :set dnsIP [:resolve $duckDomain]
 } on-error={
-    :log warning "DuckDNS: DNS resolve failed, forcing update"
-    :set dnsIP "0.0.0.0"
+    :log error ("DuckDNS: DNS resolution failed for ".$duckDomain.", skipping update")
+    :return
+}
+
+# Sanity check (extra safety)
+:if ($dnsIP = "0.0.0.0") do={
+    :log error "DuckDNS: resolved IP is 0.0.0.0, skipping update"
+    :return
 }
 
 ############################
