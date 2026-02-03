@@ -32,10 +32,12 @@ This script:
 
 Only edit the **USER CONFIGURATION** section at the top of the script:
 
+```
 USER CONFIGURATION
 :global wanInterface "pppoe-out1"
 :global duckDomain   "example.duckdns.org"
 :global duckToken    "YOUR-DUCKDNS-TOKEN"
+```
 
 ### Paste the script into the mikrotik
 From WinBox:
